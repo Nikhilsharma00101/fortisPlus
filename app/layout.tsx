@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: "FortisPlus – Advancing Healthcare with Trust",
   description: "Experience world-class medical care at FortisPlus. Expert consultations, advanced diagnostics, and compassionate patient care in New Delhi. Book your appointment today.",
   icons: {
-    icon: "/favicon.png",
+    icon: "/favicon.ico",
   },
   openGraph: {
     title: "FortisPlus – Advancing Healthcare with Trust",
