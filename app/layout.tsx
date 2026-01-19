@@ -14,9 +14,31 @@ const outfit = Outfit({
 
 export const metadata: Metadata = {
   title: "FortisPlus – Advancing Healthcare with Trust",
-  description: "Official website of FortisPlus Medical Firm. Expert consultations, diagnostics, and preventive healthcare services.",
+  description: "Experience world-class medical care at FortisPlus. Expert consultations, advanced diagnostics, and compassionate patient care in New Delhi. Book your appointment today.",
   icons: {
     icon: "/favicon.png",
+  },
+  openGraph: {
+    title: "FortisPlus – Advancing Healthcare with Trust",
+    description: "Experience world-class medical care at FortisPlus. Expert consultations, advanced diagnostics, and compassionate patient care in New Delhi.",
+    url: "https://fortisplus.in",
+    siteName: "FortisPlus",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "FortisPlus Medical Firm - Advancing Healthcare with Trust",
+      },
+    ],
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "FortisPlus – Advancing Healthcare with Trust",
+    description: "Experience world-class medical care at FortisPlus. Expert consultations, advanced diagnostics, and compassionate patient care in New Delhi.",
+    images: ["/og-image.png"],
   },
 };
 
