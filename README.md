@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FortisPlus – Advancing Healthcare with Trust
 
-## Getting Started
+FortisPlus is a professional, production-ready medical firm website built with modern web technologies. Designed for healthcare providers to showcase services, manage doctor profiles, and facilitate easy patient appointments via WhatsApp.
 
-First, run the development server:
+## 🚀 Live Features
+
+-   **WhatsApp Appointment System**: Seamless client-side booking that redirects users to WhatsApp with pre-filled, formatted consultation requests.
+-   **Dynamic Doctor Directory**: Profile cards for specialists with image support and a customizable "Available Today" status toggle.
+-   **Service Showcases**: Modern UI cards for various medical departments (Cardiology, Pediatrics, Diagnostics, etc.).
+-   **Patient Resources**: FAQ accordions, insurance guides, and billing information.
+-   **Responsive & Premium UI**: Mobile-first design with smooth scroll animations, glassmorphism navbars, and a professional medical color palette.
+-   **SEO Optimized**: Semantic HTML5, metadata management per page, and optimized images using `next/image`.
+
+## 🛠️ Tech Stack
+
+-   **Frontend**: [Next.js 15](https://nextjs.org/) (App Router)
+-   **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+-   **Language**: [TypeScript](https://www.typescriptlang.org/) (Strict Mode)
+-   **Icons**: [Lucide React](https://lucide.dev/)
+-   **Animations**: [Framer Motion](https://www.framer.com/motion/)
+-   **Fonts**: Outfit (via Google Fonts)
+
+## 📁 Project Structure
+
+```text
+├── app/                  # App router pages (Home, About, Doctors, etc.)
+├── components/           # Reusable UI components (Navbar, Hero, Cards)
+├── public/               # Static assets & Doctor portraits
+├── lib/                  # Utility functions (cn helper)
+└── globals.css           # Tailwind v4 theme and custom utilities
+```
+
+## ⚙️ Getting Started
+
+### 1. Installation
+
+```bash
+npm install
+```
+
+### 2. Development
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+```
+Open [http://localhost:3000](http://localhost:3000) to view the application.
+
+### 3. Production Build
+
+```bash
+npm run build
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🏥 Customization Guide
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Changing Doctor Availability
+In `app/doctors/page.tsx`, find the doctor object and toggle the `isAvailable` boolean:
+```tsx
+{ name: "Dr. Name", ..., isAvailable: false }
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Updating WhatsApp Contact
+In `components/WhatsAppButton.tsx` and `app/appointment/page.tsx`, update the `PHONE_NUMBER` constant to your hospital's support number.
 
-## Learn More
+### Map Location
+The contact map uses a Google Maps embed in `app/contact/page.tsx`. Currently configured for **Fortis Vasant Kunj, New Delhi**.
 
-To learn more about Next.js, take a look at the following resources:
+## 🛡️ Legal
+Includes predefined templates for:
+-   Privacy Policy
+-   Terms of Service
+-   Medical Disclaimer
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+*Built for excellence in healthcare digital presence.*
