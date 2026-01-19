@@ -15,6 +15,9 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   title: "FortisPlus – Advancing Healthcare with Trust",
   description: "Official website of FortisPlus Medical Firm. Expert consultations, diagnostics, and preventive healthcare services.",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
