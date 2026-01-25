@@ -4,7 +4,7 @@ export const metadata = {
 
 export default function Disclaimer() {
     return (
-        <div className="container-custom py-20 max-w-4xl">
+        <div className="container-custom pt-32 pb-20 max-w-4xl">
             <h1 className="text-3xl font-bold text-slate-900 mb-8">Medical Disclaimer</h1>
             <div className="prose prose-slate max-w-none text-slate-600">
                 <p className="mb-6 p-6 bg-yellow-50 border border-yellow-200 rounded-xl text-yellow-800 font-medium">

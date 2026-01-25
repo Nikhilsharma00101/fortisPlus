@@ -1,81 +1,70 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Activity, Heart, ShieldPlus } from "lucide-react";
+import { ArrowRight, CalendarCheck, Phone } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function Hero() {
     return (
-        <section className="relative bg-gradient-to-br from-teal-50 to-white overflow-hidden py-20 lg:py-32">
-            <div className="container-custom relative z-10">
-                <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <section className="relative h-screen min-h-[750px] md:min-h-[800px] flex items-center justify-center overflow-hidden pt-20">
+            {/* Background Image Placeholder - To be replaced by generated image */}
+            <div className="absolute inset-0 z-0">
+                <div className="absolute inset-0 bg-[url('/images/hero-bg.png')] bg-cover bg-center bg-no-repeat" />
+                {/* Fallback gradient if image missing */}
+                <div className="absolute inset-0 bg-gradient-to-br from-slate-200 to-slate-300 -z-10" />
+
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-r from-[var(--color-primary-dark)]/90 via-[var(--color-primary)]/20 to-transparent z-10" />
+            </div>
+
+            <div className="container-custom relative z-20 w-full">
+                <div className="max-w-3xl">
                     <motion.div
-                        initial={{ opacity: 0, y: 20 }}
+                        initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.5 }}
-                        className="max-w-2xl"
+                        transition={{ duration: 0.8, ease: "circOut" }}
+                        className="glass p-6 md:p-12 rounded-2xl md:rounded-[2rem] border-l-4 border-[var(--color-secondary)] backdrop-blur-xl bg-white/80 shadow-2xl"
                     >
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-100 text-teal-800 text-sm font-medium mb-6">
-                            <span className="flex h-2 w-2 rounded-full bg-teal-600 animate-pulse"></span>
-                            Leading Medical Excellence
+                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)] text-sm font-bold mb-6 backdrop-blur-sm border border-[var(--color-primary)]/20">
+                            <span className="flex h-2 w-2 rounded-full bg-[var(--color-secondary)] animate-pulse"></span>
+                            World-Class Medical Care
                         </div>
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight mb-6">
-                            Fortis<span className="text-primary">Plus</span> – Advancing Healthcare with Trust
+
+                        <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-slate-900 leading-tight mb-6">
+                            Advancing Healthcare <br />
+                            <span className="text-[var(--color-primary)]">With Trust</span>
                         </h1>
-                        <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-                            Experience world-class medical care with our team of expert doctors and state-of-the-art facilities. Your health is our priority.
+
+                        <p className="text-lg md:text-xl text-slate-700 mb-8 leading-relaxed max-w-xl font-medium">
+                            Experience the future of medicine with our team of expert doctors and state-of-the-art facilities. Your well-being is our lifelong commitment.
                         </p>
+
                         <div className="flex flex-col sm:flex-row gap-4">
-                            <Link href="/appointment" className="btn-primary text-center">
+                            <Link href="/appointment" className="btn-primary flex items-center justify-center gap-2 group shadow-xl shadow-blue-900/20">
+                                <CalendarCheck size={20} />
                                 Book Appointment
+                                <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                             </Link>
-                            <Link href="/contact" className="btn-outline text-center flex items-center justify-center gap-2">
-                                Contact Us
-                                <ArrowRight size={18} />
+                            <Link href="/contact" className="px-8 py-4 rounded-full font-bold transition-all duration-300 bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 hover:text-[var(--color-primary)] hover:border-[var(--color-primary)] flex items-center justify-center gap-2 shadow-md">
+                                <Phone size={20} />
+                                Emergency Contact
                             </Link>
-                        </div>
-
-                        <div className="mt-12 grid grid-cols-3 gap-6 border-t border-slate-200 pt-8">
-                            <div>
-                                <p className="text-3xl font-bold text-primary">50+</p>
-                                <p className="text-sm text-slate-600">Specialist Doctors</p>
-                            </div>
-                            <div>
-                                <p className="text-3xl font-bold text-primary">10k+</p>
-                                <p className="text-sm text-slate-600">Happy Patients</p>
-                            </div>
-                            <div>
-                                <p className="text-3xl font-bold text-primary">24/7</p>
-                                <p className="text-sm text-slate-600">Emergency Support</p>
-                            </div>
-                        </div>
-                    </motion.div>
-
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.5, delay: 0.2 }}
-                        className="relative hidden lg:block"
-                    >
-                        <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-teal-100 rounded-full blur-3xl opacity-50"></div>
-                        <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-72 h-72 bg-blue-100 rounded-full blur-3xl opacity-50"></div>
-
-                        {/* Placeholder for Medical Image - using a gradient/shape for now as per instructions (no lorem ipsum, pro design) */}
-                        <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-white p-2">
-                            {/* In a real app, use an image here. Using a stylized abstract representation since I don't have images. */}
-                            <div className="bg-gradient-to-br from-teal-500 to-blue-600 rounded-xl h-[500px] w-full flex items-center justify-center relative overflow-hidden">
-                                <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white to-transparent"></div>
-                                <ShieldPlus className="text-white/20 w-64 h-64 absolute -bottom-12 -right-12" />
-                                <Activity className="text-white/20 w-32 h-32 absolute top-12 left-12" />
-                                <div className="text-white text-center p-8 z-10">
-                                    <Heart className="w-20 h-20 mx-auto mb-4 fill-white text-white/50" />
-                                    <p className="text-2xl font-bold">Trusted Care</p>
-                                </div>
-                            </div>
                         </div>
                     </motion.div>
                 </div>
             </div>
+
+            {/* Scroll Indicator */}
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1, duration: 1 }}
+                className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20"
+            >
+                <div className="w-6 h-10 rounded-full border-2 border-white/30 flex justify-center p-1">
+                    <div className="w-1.5 h-1.5 rounded-full bg-white animate-bounce" />
+                </div>
+            </motion.div>
         </section>
     );
 }

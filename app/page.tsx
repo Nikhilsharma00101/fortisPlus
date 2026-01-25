@@ -1,8 +1,11 @@
 import Hero from "@/components/Hero";
+import TrustIndicators from "@/components/TrustIndicators";
 import ServiceCard from "@/components/ServiceCard";
-import TestimonialCard from "@/components/TestimonialCard";
-import { Stethoscope, Activity, HeartPulse, Microscope, Users, Clock } from "lucide-react";
+import CarePhilosophy from "@/components/CarePhilosophy";
+import FeaturedDoctors from "@/components/FeaturedDoctors";
+import TestimonialsSection from "@/components/TestimonialsSection";
 import Link from "next/link";
+import { ArrowRight, Stethoscope, Activity, HeartPulse, Microscope } from "lucide-react";
 
 export default function Home() {
   const services = [
@@ -32,132 +35,69 @@ export default function Home() {
     },
   ];
 
-  const testimonials = [
-    {
-      quote: "The care I received at FortisPlus was exceptional. The doctors were attentive and the facilities are world-class.",
-      name: "Sarah Johnson",
-      role: "Patient"
-    },
-    {
-      quote: "I highly recommend FortisPlus for their efficient diagnostic services. The staff is professional and caring.",
-      name: "Michael Chen",
-      role: "Corporate Client"
-    },
-    {
-      quote: "Best medical experience I've had. The appointment process via WhatsApp was so convenient.",
-      name: "Emily Davis",
-      role: "Patient"
-    }
-  ];
-
   return (
-    <>
+    <main>
       <Hero />
+      <TrustIndicators />
 
-      {/* Services Section */}
-      <section className="py-20 bg-white">
-        <div className="container-custom">
+      {/* Section 3: Key Services */}
+      <section className="py-24 bg-medical-clean relative overflow-hidden">
+        <div className="absolute top-0 right-0 -mr-64 -mt-64 w-[500px] h-[500px] bg-[var(--color-secondary)]/10 rounded-full pointer-events-none"></div>
+        <div className="container-custom relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Comprehensive Healthcare Services</h2>
-            <p className="text-lg text-slate-600">We offer a wide range of medical services to ensure your health and well-being are always in good hands.</p>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 text-[var(--color-primary)] text-sm font-semibold mb-6 shadow-sm">
+              Our Services
+            </div>
+            <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6 drop-shadow-sm">Comprehensive Healthcare</h2>
+            <p className="text-lg text-slate-700 leading-relaxed font-medium">We offer a wide range of medical services to ensure your health and well-being are always in good hands.</p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
             {services.map((service, index) => (
               <ServiceCard key={index} {...service} />
             ))}
           </div>
 
-          <div className="text-center mt-12">
-            <Link href="/services" className="btn-outline">View All Services</Link>
+          <div className="text-center mt-16">
+            <Link href="/services" className="btn-secondary hover:bg-[var(--color-primary)] hover:text-white border-2">
+              View All Services
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Why Choose Us */}
-      <section className="py-20 bg-teal-50">
-        <div className="container-custom">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Why Choose FortisPlus?</h2>
-              <div className="space-y-8">
-                <div className="flex gap-4">
-                  <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm shrink-0">
-                    <Users className="text-teal-600" size={24} />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-slate-900 mb-2">Expert Medical Team</h3>
-                    <p className="text-slate-600">Our team consists of highly qualified doctors and specialists with years of experience.</p>
-                  </div>
-                </div>
-                <div className="flex gap-4">
-                  <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm shrink-0">
-                    <Clock className="text-teal-600" size={24} />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-slate-900 mb-2">24/7 Support</h3>
-                    <p className="text-slate-600">We are always available to handle emergencies and provide round-the-clock care.</p>
-                  </div>
-                </div>
-                <div className="flex gap-4">
-                  <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm shrink-0">
-                    <Activity className="text-teal-600" size={24} />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-slate-900 mb-2">Advanced Technology</h3>
-                    <p className="text-slate-600">We use the latest medical technology and state-of-the-art equipment for precise diagnostics.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="relative">
-              <div className="bg-white p-8 rounded-3xl shadow-xl border border-slate-100 relative z-10">
-                <div className="bg-teal-100 rounded-2xl h-64 w-full mb-6 flex items-center justify-center">
-                  {/* Placeholder Image */}
-                  <span className="text-teal-800 font-medium">Modern Facility Image</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <div>
-                    <p className="text-3xl font-bold text-slate-900">4.9/5</p>
-                    <p className="text-slate-500 text-sm">Patient Satisfaction</p>
-                  </div>
-                  <div>
-                    <p className="text-3xl font-bold text-slate-900">15+</p>
-                    <p className="text-slate-500 text-sm">Years of Trust</p>
-                  </div>
-                </div>
-              </div>
-              <div className="absolute top-10 -right-10 w-full h-full bg-teal-200/50 rounded-3xl -z-0"></div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Section 4: Featured Doctors */}
+      <FeaturedDoctors />
 
-      {/* Testimonials */}
-      <section className="py-20 bg-white">
-        <div className="container-custom">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Patient Stories</h2>
-            <p className="text-lg text-slate-600">Hear from those who have experienced our care firsthand.</p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((t, i) => (
-              <TestimonialCard key={i} {...t} />
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Section 5: Care Philosophy */}
+      <CarePhilosophy />
 
-      {/* CTA Section */}
-      <section className="py-20 bg-slate-900 text-white">
-        <div className="container-custom text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to prioritize your health?</h2>
-          <p className="text-slate-300 text-lg mb-8 max-w-2xl mx-auto">Book an appointment today with trusted specialists and take the first step towards a healthier life.</p>
-          <Link href="/appointment" className="btn-primary bg-teal-500 hover:bg-teal-400 border-none text-white text-lg px-8 py-4">
-            Book Your Appointment Now
-          </Link>
+      {/* Section 6: Testimonials */}
+      <TestimonialsSection />
+
+      {/* Section 7: CTA Banner */}
+      <section className="py-24 relative overflow-hidden">
+        {/* Abstract Wave SVG Background */}
+        <div className="absolute inset-0 bg-slate-900 overflow-hidden">
+          <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-[var(--color-secondary)] to-transparent"></div>
+          <svg className="absolute bottom-0 left-0 w-full h-full opacity-10" viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg">
+            <path fill="#0FB9B1" fillOpacity="1" d="M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,224C672,245,768,267,864,261.3C960,256,1056,224,1152,197.3C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+          </svg>
+        </div>
+
+        <div className="container-custom relative z-10 text-center">
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-8 text-shadow-sm">Ready to prioritize your health?</h2>
+          <p className="text-slate-100 text-xl mb-10 max-w-2xl mx-auto font-medium shadow-black/10 text-shadow-sm">Book an appointment today with trusted specialists and take the first step towards a healthier life.</p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/appointment" className="btn-primary bg-gradient-to-r from-[var(--color-secondary)] to-teal-500 hover:shadow-[var(--color-secondary)]/50 border-none">
+              Book Your Appointment Now
+            </Link>
+            <Link href="/contact" className="px-8 py-4 rounded-full font-semibold transition-all duration-300 bg-transparent text-white border border-white/30 hover:bg-white/10 flex items-center justify-center gap-2">
+              Contact Support <ArrowRight size={18} />
+            </Link>
+          </div>
         </div>
       </section>
-    </>
+    </main>
   );
 }

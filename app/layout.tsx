@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Outfit } from "next/font/google";
+import { Outfit, Plus_Jakarta_Sans } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
@@ -8,6 +8,12 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 
 const outfit = Outfit({
   variable: "--font-outfit",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const plusJakarta = Plus_Jakarta_Sans({
+  variable: "--font-plus-jakarta",
   subsets: ["latin"],
   display: "swap",
 });
@@ -50,7 +56,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${outfit.variable} antialiased bg-white text-slate-900 flex flex-col min-h-screen`}
+        className={`${outfit.variable} ${plusJakarta.variable} antialiased bg-white text-slate-900 flex flex-col min-h-screen`}
       >
         <Navbar />
         <main className="flex-grow">

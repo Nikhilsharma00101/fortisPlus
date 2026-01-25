@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { Calendar, Clock, MessageCircle, Send } from "lucide-react";
+import { Calendar, Clock, MessageCircle, Send, ShieldCheck, UserCheck, Star, Phone } from "lucide-react";
 
 export default function Appointment() {
     const [formData, setFormData] = useState({
@@ -27,7 +28,7 @@ Preferred Date: ${formData.date}
 Message: ${formData.message || "N/A"}`;
 
         // Redirect to WhatsApp
-        const phone = "919876543210"; // Replaced with actual Indian support number
+        const phone = "919876543210";
         const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
 
         window.open(url, "_blank");
@@ -38,154 +39,182 @@ Message: ${formData.message || "N/A"}`;
     };
 
     return (
-        <div className="bg-slate-50 min-h-screen py-20">
-            <div className="container-custom">
-                <div className="max-w-4xl mx-auto bg-white rounded-3xl shadow-xl overflow-hidden flex flex-col md:flex-row">
+        <main className="pb-0 min-h-screen relative overflow-hidden">
+            {/* Background Elements */}
+            <div className="absolute top-0 left-0 w-full h-[800px] -z-10">
+                <Image
+                    src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=2068"
+                    alt="Medical Appointment Background"
+                    fill
+                    className="object-cover"
+                    priority
+                />
+                <div className="absolute inset-0 bg-white/30 backdrop-blur-[5px]"></div>
 
-                    {/* Form Side */}
-                    <div className="p-8 md:p-12 w-full md:w-2/3">
-                        <h1 className="text-3xl font-bold text-slate-900 mb-2">Book an Appointment</h1>
-                        <p className="text-slate-600 mb-8">Fill the form below and we will confirm your slot via WhatsApp.</p>
+                <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[var(--color-secondary)]/10 rounded-full blur-3xl -mr-40 -mt-40 animate-pulse"></div>
+            </div>
 
-                        <form onSubmit={handleSubmit} className="space-y-6">
-                            <div className="grid md:grid-cols-2 gap-6">
-                                <div>
-                                    <label className="block text-sm font-medium text-slate-700 mb-2">Full Name</label>
+            <div className="container-custom pt-24 pb-12 md:pt-32 md:pb-20">
+                {/* Reassurance Header */}
+                <div className="text-center mb-12 max-w-2xl mx-auto relative z-10">
+                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)] text-sm font-bold mb-6 border border-[var(--color-primary)]/20">
+                        <ShieldCheck size={16} /> Secure & Confidential Booking
+                    </div>
+                    <h1 className="text-4xl md:text-5xl font-bold mb-6 text-slate-900">Your Health, Our Priority</h1>
+                    <p className="text-xl text-slate-600 opacity-90 leading-relaxed font-medium">
+                        Book your appointment today and take the first step towards a healthier tomorrow. Quick, easy, and reliable.
+                    </p>
+                </div>
+
+                <div className="max-w-6xl mx-auto grid lg:grid-cols-3 gap-8">
+                    {/* Form Section */}
+                    <div className="lg:col-span-2">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className="bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-100 p-8 md:p-10 relative"
+                        >
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-teal-50 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
+
+                            <h2 className="text-2xl font-bold text-slate-900 mb-8 flex items-center gap-3">
+                                <Calendar className="text-[var(--color-secondary)]" /> Book Your Slot
+                            </h2>
+
+                            <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
+                                <div className="grid md:grid-cols-2 gap-6">
+                                    <div className="space-y-2">
+                                        <label className="text-sm font-bold text-slate-700">Full Name</label>
+                                        <input
+                                            required
+                                            type="text"
+                                            name="name"
+                                            value={formData.name}
+                                            onChange={handleChange}
+                                            className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-[var(--color-secondary)] focus:ring-4 focus:ring-[var(--color-secondary)]/10 outline-none transition-all"
+                                            placeholder="John Doe"
+                                        />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <label className="text-sm font-bold text-slate-700">Phone Number</label>
+                                        <input
+                                            required
+                                            type="tel"
+                                            name="phone"
+                                            value={formData.phone}
+                                            onChange={handleChange}
+                                            className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-[var(--color-secondary)] focus:ring-4 focus:ring-[var(--color-secondary)]/10 outline-none transition-all"
+                                            placeholder="+91 98765 43210"
+                                        />
+                                    </div>
+                                </div>
+
+                                <div className="grid md:grid-cols-2 gap-6">
+                                    <div className="space-y-2">
+                                        <label className="text-sm font-bold text-slate-700">Email Address</label>
+                                        <input
+                                            required
+                                            type="email"
+                                            name="email"
+                                            value={formData.email}
+                                            onChange={handleChange}
+                                            className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-[var(--color-secondary)] focus:ring-4 focus:ring-[var(--color-secondary)]/10 outline-none transition-all"
+                                            placeholder="john@example.com"
+                                        />
+                                    </div>
+                                    <div className="space-y-2">
+                                        <label className="text-sm font-bold text-slate-700">Service Required</label>
+                                        <select
+                                            name="service"
+                                            value={formData.service}
+                                            onChange={handleChange}
+                                            className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-[var(--color-secondary)] focus:ring-4 focus:ring-[var(--color-secondary)]/10 outline-none transition-all"
+                                        >
+                                            <option>General Consultation</option>
+                                            <option>Cardiology</option>
+                                            <option>Pediatrics</option>
+                                            <option>Neurology</option>
+                                            <option>Diagnostics / Lab</option>
+                                            <option>Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div className="space-y-2">
+                                    <label className="text-sm font-bold text-slate-700">Preferred Date</label>
                                     <input
                                         required
-                                        type="text"
-                                        name="name"
-                                        value={formData.name}
+                                        type="date"
+                                        name="date"
+                                        value={formData.date}
                                         onChange={handleChange}
-                                        className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all"
-                                        placeholder="John Doe"
+                                        className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-[var(--color-secondary)] focus:ring-4 focus:ring-[var(--color-secondary)]/10 outline-none transition-all"
                                     />
                                 </div>
-                                <div>
-                                    <label className="block text-sm font-medium text-slate-700 mb-2">Phone Number</label>
-                                    <input
-                                        required
-                                        type="tel"
-                                        name="phone"
-                                        value={formData.phone}
+
+                                <div className="space-y-2">
+                                    <label className="text-sm font-bold text-slate-700">Reason for Visit (Optional)</label>
+                                    <textarea
+                                        name="message"
+                                        value={formData.message}
                                         onChange={handleChange}
-                                        className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all"
-                                        placeholder="+91 98765 43210"
-                                    />
+                                        rows={3}
+                                        className="w-full px-4 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-[var(--color-secondary)] focus:ring-4 focus:ring-[var(--color-secondary)]/10 outline-none transition-all"
+                                        placeholder="Briefly describe your symptoms..."
+                                    ></textarea>
                                 </div>
-                            </div>
 
-                            <div className="grid md:grid-cols-2 gap-6">
-                                <div>
-                                    <label className="block text-sm font-medium text-slate-700 mb-2">Email Address</label>
-                                    <input
-                                        required
-                                        type="email"
-                                        name="email"
-                                        value={formData.email}
-                                        onChange={handleChange}
-                                        className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all"
-                                        placeholder="john@example.com"
-                                    />
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium text-slate-700 mb-2">Service Required</label>
-                                    <select
-                                        name="service"
-                                        value={formData.service}
-                                        onChange={handleChange}
-                                        className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all"
-                                    >
-                                        <option>General Consultation</option>
-                                        <option>Cardiology</option>
-                                        <option>Pediatrics</option>
-                                        <option>Neurology</option>
-                                        <option>Diagnostics / Lab</option>
-                                        <option>Other</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div>
-                                <label className="block text-sm font-medium text-slate-700 mb-2">Preferred Date</label>
-                                <input
-                                    required
-                                    type="date"
-                                    name="date"
-                                    value={formData.date}
-                                    onChange={handleChange}
-                                    className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all"
-                                />
-                            </div>
-
-                            <div>
-                                <label className="block text-sm font-medium text-slate-700 mb-2">Message (Optional)</label>
-                                <textarea
-                                    name="message"
-                                    value={formData.message}
-                                    onChange={handleChange}
-                                    rows={4}
-                                    className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all"
-                                    placeholder="Briefly describe your symptoms or inquiry..."
-                                ></textarea>
-                            </div>
-
-                            <button
-                                type="submit"
-                                className="w-full btn-primary flex items-center justify-center gap-2 text-lg"
-                            >
-                                <Send size={20} />
-                                Book via WhatsApp
-                            </button>
-                            <p className="text-xs text-slate-500 text-center mt-4">
-                                By booking, you agree to receive appointment updates via WhatsApp.
-                            </p>
-                        </form>
+                                <button
+                                    type="submit"
+                                    className="w-full btn-primary flex items-center justify-center gap-2 text-lg shadow-xl shadow-[var(--color-primary)]/20 hover:shadow-2xl hover:shadow-[var(--color-primary)]/30 hover:-translate-y-1 transform transition-all duration-300"
+                                >
+                                    Confirm Booking <Send size={20} />
+                                </button>
+                                <p className="text-xs text-slate-500 text-center flex items-center justify-center gap-1">
+                                    <ShieldCheck size={12} /> Your personal information is kept strictly confidential.
+                                </p>
+                            </form>
+                        </motion.div>
                     </div>
 
-                    {/* Info Side */}
-                    <div className="bg-teal-600 p-8 md:p-12 w-full md:w-1/3 text-white flex flex-col justify-between relative overflow-hidden">
-                        <div className="relative z-10">
-                            <h3 className="text-2xl font-bold mb-6">Contact Info</h3>
-                            <div className="space-y-6">
-                                <div className="flex items-start gap-4">
-                                    <Clock className="shrink-0 mt-1 alpha-80" />
-                                    <div>
-                                        <p className="font-semibold">Working Hours</p>
-                                        <p className="text-teal-100 text-sm">Mon - Sat: 8AM - 8PM</p>
-                                        <p className="text-teal-100 text-sm">Sun: 10AM - 4PM</p>
-                                    </div>
+                    {/* Trust & Safety Side */}
+                    <div className="space-y-6">
+                        {/* Summary Card */}
+                        <div className="bg-white p-8 rounded-3xl shadow-lg border border-slate-100">
+                            <h3 className="text-xl font-bold text-slate-900 mb-6">Why Choose FortisPlus?</h3>
+                            <ul className="space-y-4">
+                                {[
+                                    { icon: Star, text: "Top-Rated Specialists", color: "text-amber-500", bg: "bg-amber-50" },
+                                    { icon: Clock, text: "Zero Waiting Time", color: "text-blue-500", bg: "bg-blue-50" },
+                                    { icon: UserCheck, text: "Personalized Care", color: "text-teal-500", bg: "bg-teal-50" },
+                                    { icon: ShieldCheck, text: "Safe & Sanitized", color: "text-green-500", bg: "bg-green-50" }
+                                ].map((item, i) => (
+                                    <li key={i} className="flex items-center gap-4">
+                                        <div className={`p-2 rounded-lg ${item.bg} ${item.color}`}>
+                                            <item.icon size={20} />
+                                        </div>
+                                        <span className="font-medium text-slate-700">{item.text}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        {/* Emergency Card */}
+                        <div className="bg-gradient-to-br from-red-500 to-rose-600 p-8 rounded-3xl shadow-lg text-white text-center relative overflow-hidden">
+                            <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-3xl -mr-10 -mt-10"></div>
+                            <div className="relative z-10">
+                                <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 backdrop-blur-sm animate-pulse">
+                                    <Phone size={24} />
                                 </div>
-                                <div className="flex items-start gap-4">
-                                    <MessageCircle className="shrink-0 mt-1 alpha-80" />
-                                    <div>
-                                        <p className="font-semibold">Emergency</p>
-                                        <p className="text-teal-100 text-sm">24/7 Support Available</p>
-                                        <p className="text-teal-100 text-sm">+91 11 4277 6444</p>
-                                    </div>
-                                </div>
+                                <h3 className="text-xl font-bold mb-2">Need Urgent Help?</h3>
+                                <p className="text-red-100 text-sm mb-4">Our emergency department is open 24/7 for critical care.</p>
+                                <a href="tel:+911142776444" className="inline-block bg-white text-red-600 px-6 py-2 rounded-full font-bold shadow-md hover:bg-red-50 transition-colors">
+                                    Call 1066
+                                </a>
                             </div>
                         </div>
-
-                        <div className="relative z-10 mt-12">
-                            <QuoteBox />
-                        </div>
-
-                        {/* Background Decoration */}
-                        <div className="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-teal-500 rounded-full blur-3xl opacity-50"></div>
-                        <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-64 h-64 bg-teal-700 rounded-full blur-3xl opacity-50"></div>
                     </div>
                 </div>
             </div>
-        </div>
-    );
-}
-
-function QuoteBox() {
-    return (
-        <div className="bg-white/10 backdrop-blur-sm p-6 rounded-xl border border-white/20">
-            <p className="italic text-teal-50 mb-4">"Health is not valued till sickness comes."</p>
-            <p className="font-bold text-sm">— Dr. Thomas Fuller</p>
-        </div>
+        </main>
     );
 }
