@@ -27,7 +27,7 @@ const articlesData: Record<string, {
             <div className="space-y-6 text-slate-700 leading-loose">
                 <p>
                     Your heart is the engine of your body, working tirelessly to pump blood and oxygen to every cell.
-                    Maintaing heart health is not just about avoiding disease—it's about building a lifestyle that supports longevity and vitality.
+                    Maintaing heart health is not just about avoiding disease—it&apos;s about building a lifestyle that supports longevity and vitality.
                 </p>
 
                 <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">The Pillars of Heart Health</h3>
@@ -44,12 +44,12 @@ const articlesData: Record<string, {
 
                 <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">Screening & Prevention</h3>
                 <p>
-                    Regular check-ups are crucial. Conditions like hypertension (high blood pressure) often have no obvious symptoms until it's too late.
+                    Regular check-ups are crucial. Conditions like hypertension (high blood pressure) often have no obvious symptoms until it&apos;s too late.
                     We recommend annual check-ups starting at age 30, or earlier if you have a family history of heart disease.
                 </p>
 
                 <div className="bg-blue-50 border-l-4 border-blue-500 p-6 my-8 rounded-r-lg italic">
-                    "Prevention is always better than cure. Small daily habits compound over years to create a lifetime of heart health."
+                    &quot;Prevention is always better than cure. Small daily habits compound over years to create a lifetime of heart health.&quot;
                 </div>
             </div>
         )
@@ -65,7 +65,7 @@ const articlesData: Record<string, {
         content: (
             <div className="space-y-6 text-slate-700 leading-loose">
                 <p>
-                    Recovering from an illness or surgery increases your body's energy demands.
+                    Recovering from an illness or surgery increases your body&apos;s energy demands.
                     Proper nutrition provides the building blocks—protein, vitamins, and minerals—needed to repair tissue and fight infection.
                 </p>
 
@@ -108,7 +108,7 @@ const articlesData: Record<string, {
                 <ul className="list-disc pl-6 space-y-2 mt-4">
                     <li><strong>Review Medications:</strong> Some medicines (like blood thinners) may need to be paused. Consult your doctor.</li>
                     <li><strong>Arrange Support:</strong> You will likely need someone to drive you home and stay with you for the first 24 hours.</li>
-                    <li><strong>Prepare Your Home:</strong> Place essential items within arm's reach to avoid straining when you return.</li>
+                    <li><strong>Prepare Your Home:</strong> Place essential items within arm&apos;s reach to avoid straining when you return.</li>
                 </ul>
 
                 <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">2. The Night Before</h3>
@@ -119,7 +119,7 @@ const articlesData: Record<string, {
 
                 <h3 className="text-2xl font-bold text-slate-900 mt-8 mb-4">3. Mental Preparation</h3>
                 <p>
-                    It's normal to feel nervous. Practice deep breathing, listen to calming music, and trust your medical team.
+                    It&apos;s normal to feel nervous. Practice deep breathing, listen to calming music, and trust your medical team.
                     We are here to take care of you every step of the way.
                 </p>
             </div>

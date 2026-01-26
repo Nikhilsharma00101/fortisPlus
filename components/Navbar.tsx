@@ -21,7 +21,7 @@ export default function Navbar() {
     const pathname = usePathname();
 
     // Pages that have transparent/light nav initially due to dark backgrounds
-    const darkHeroPaths = ["/appointment", "/contact"];
+    const darkHeroPaths = ["/", "/appointment", "/contact"];
     const isDarkHero = darkHeroPaths.includes(pathname);
 
     // Determine if we should show dark text or light text (always dark if menu is open)
